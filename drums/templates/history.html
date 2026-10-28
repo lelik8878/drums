@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants</title>
+    <meta name="description" content="Сбор на барабаны и другие инструменты.">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+</head>
+<body>
+<div class="container">
+
+        <header class="header">
+            <h1 class="site-title">Участники проекта</h1>
+
+            <nav class="navigation" aria-label="Основная навигация">
+                <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
+                <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
+                <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
+                <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
+            </nav>
+        </header>
+
+        <main class="main-content_other">
+
+            <section class="content-block">
+                <h2>История здесь будет</h2>
+                <p>
+                    Пока не готово.
+                </p>
+
+                <div class="table-container">
+                    <table class="custom-table">
+                        <!-- Заголовок таблицы (для доступности) -->
+                        <caption class="table-caption">Спецификации ударных установок</caption>
+
+                        <!-- Шапка таблицы -->
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Фото</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Основное содержимое -->
+                        <tbody>
+                            <tr>
+                                <td>Алексей Гиро</td>
+                                <td><img src="{% static 'img/self.jpg' %}" alt="foto"></td>
+                            </tr>
+                            <tr>
+                                <td>Алексей выдрин</td>
+                                <td><img src="{% static 'img/vidryn_01.jpg' %}" alt="foto"></td>
+                            </tr>
+                            <tr>
+                                <td>Rock Monster</td>
+                                <td><img src="" alt="foto"></td>
+                            </tr>
+                            <tr>
+                                <td>Studio Pro</td>
+                                <td><img src="" alt="foto"></td>
+                            </tr>
+                        </tbody>
+
+                        <!-- Подвал таблицы (например, для итогов) -->
+                        <tfoot>
+                            <tr>
+                                <td >Средняя стоимость</td>
+                                <td>48 750 7575,97 </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; by Alexei Giro</p>
+        </footer>
+
+    </div>
+</body>
+</html>

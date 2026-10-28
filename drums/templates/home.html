@@ -10,7 +10,89 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
 </head>
 <body>
-<h1>Drums</h1>
-<script src="{% static 'js/home.js' %}"></script>
+    <div class="container">
+
+        <header class="header">
+            <h1 class="site-title">Барабаны</h1>
+
+            <nav class="navigation" aria-label="Основная навигация">
+                <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="#">Главная</a>
+                <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
+                <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="#">История</a>
+                <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="#">Как пополнить</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+
+            <section class="content-block">
+                <h2>Основной блок</h2>
+                <p>
+                    Здесь будет фотка с состоянием счета и нужно придумать что еще.
+                    <img src="{% static 'img/moby.jpg' %}" alt="account status">
+                </p>
+
+                <button class="action-button" type="button">
+                    Подробнее
+                </button>
+            </section>
+
+            <section class="content-block">
+                <h2>Дополнительный блок</h2>
+                <p>
+                    Здесь будут последние пополнения.
+                </p>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <!-- Заголовок таблицы (для доступности) -->
+                        <caption class="table-caption">Спецификации ударных установок</caption>
+
+                        <!-- Шапка таблицы -->
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Количество</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Основное содержимое -->
+                        <tbody>
+                            <tr>
+                                <td>Stage Master 500</td>
+                                <td>45 000 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>Jazz Essence</td>
+                                <td>38 000 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>Rock Monster</td>
+                                <td>52 000 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>Studio Pro</td>
+                                <td>60 000 BYN</td>
+                            </tr>
+                        </tbody>
+
+                        <!-- Подвал таблицы (например, для итогов) -->
+                        <tfoot>
+                            <tr>
+                                <td >Всего собрано</td>
+                                <td>456 BYN</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; by Alexei Giro</p>
+        </footer>
+
+    </div>
+    <script src="{% static 'js/home.js' %}"></script>
 </body>
 </html>

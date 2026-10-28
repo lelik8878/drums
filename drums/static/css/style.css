@@ -1,0 +1,226 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+
+    background-color: #f2f4f7;
+    color: #222;
+
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Ограниченный по ширине контейнер */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Верхняя часть страницы */
+.header {
+    padding: 30px 0 20px;
+}
+
+.site-title {
+    margin: 0 0 20px;
+
+    color: #1f2937;
+    font-size: 32px;
+    text-align: center;
+}
+
+/* Панель навигации */
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.nav-button {
+    padding: 10px 18px;
+
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: white;
+
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #1d4ed8;
+}
+
+.nav-button.active {
+    background-color: #172554;
+}
+
+/* Два основных блока */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    padding: 20px 0;
+}
+
+.main-content_other {
+    min-width: 320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 50%;
+    padding: 20px 0;
+}
+
+.content-block {
+    padding: 25px;
+
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.content-block h2 {
+    margin-top: 0;
+    color: #1f2937;
+}
+
+.content-block img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+}
+
+/* Кнопка внутри контента */
+.action-button {
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: #16a34a;
+    color: white;
+
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.action-button:hover {
+    background-color: #15803d;
+}
+
+/* Подвал */
+.footer {
+    padding: 20px 0;
+
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Мобильная версия */
+@media (max-width: 700px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .site-title {
+        font-size: 26px;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+    .nav-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .content-block {
+        padding: 20px;
+    }
+}
+
+/* Контейнер для адаптивности (горизонтальный скролл на телефонах) */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse; /* Убирает двойные рамки между ячейками */
+    font-family: sans-serif;
+    background-color: white;
+    min-width: 300px; /* Чтобы таблица не сжималась слишком сильно */
+}
+
+/* Заголовок таблицы */
+.table-caption {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #172554;
+    text-align: left;
+}
+
+/* Стили для ячеек шапки (th) */
+.custom-table thead th {
+    background-color: #2563eb; /* Ваш синий цвет */
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: 600;
+    border-bottom: 3px solid #172554;
+}
+
+/* Стили для обычных ячеек (td) */
+.custom-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+}
+
+.custom-table td img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    object-fit: cover;
+}
+
+/* Эффект "Зебры": закрашиваем каждую вторую строку */
+.custom-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+/* Подсветка строки при наведении курсора */
+.custom-table tbody tr:hover {
+    background-color: #eff6ff;
+    transition: background-color 0.2s;
+}
+
+/* Стили для подвала (tfoot) */
+.custom-table tfoot td {
+    background-color: #f1f5f9;
+    font-weight: bold;
+    color: #172554;
+    border-top: 2px solid #cbd5e1;
+}
