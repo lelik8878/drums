@@ -1,52 +1,36 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drums</title>
+    <title>Барабаны</title>
     <meta name="description" content="Сбор на барабаны и другие инструменты.">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=2">
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
 </head>
 <body>
     <div class="container">
-
         <header class="header">
             <h1 class="site-title">Барабаны</h1>
-
             <nav class="navigation" aria-label="Основная навигация">
-                <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="#">Главная</a>
+                <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
                 <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
-                <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="#">История</a>
-                <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="#">Как пополнить</a>
+                <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
+                <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
             </nav>
         </header>
-
         <main class="main-content">
-
             <section class="content-block">
-                <h2>Основной блок</h2>
-                <p>
-                    Здесь будет фотка с состоянием счета и нужно придумать что еще.
-                    <img src="{% static 'img/moby.jpg' %}" alt="account status">
-                </p>
-
-                <button class="action-button" type="button">
-                    Подробнее
-                </button>
+                <h2>На что собираем</h2>
+                <img src="{% static 'img/on_music.jpg' %}" alt="предмет сбора">
+                <h2>Состояние счета</h2>
+                <img src="{% static 'img/moby.jpg' %}" alt="состояние счета">
             </section>
-
             <section class="content-block">
-                <h2>Дополнительный блок</h2>
-                <p>
-                    Здесь будут последние пополнения.
-                </p>
+                <h2>Последние пополнения</h2>
                 <div class="table-container">
                     <table class="custom-table">
-                        <!-- Заголовок таблицы (для доступности) -->
-                        <caption class="table-caption">Спецификации ударных установок</caption>
-
                         <!-- Шапка таблицы -->
                         <thead>
                             <tr>
@@ -54,7 +38,6 @@
                                 <th>Количество</th>
                             </tr>
                         </thead>
-
                         <!-- Основное содержимое -->
                         <tbody>
                             <tr>
@@ -74,7 +57,6 @@
                                 <td>60 000 BYN</td>
                             </tr>
                         </tbody>
-
                         <!-- Подвал таблицы (например, для итогов) -->
                         <tfoot>
                             <tr>
@@ -85,14 +67,11 @@
                     </table>
                 </div>
             </section>
-
         </main>
-
         <footer class="footer">
             <p>&copy; by Alexei Giro</p>
         </footer>
-
     </div>
-    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/home.js' %}?v=1.2"></script>
 </body>
 </html>

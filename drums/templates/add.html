@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить</title>
+    <meta name="description" content="Сбор на барабаны и другие инструменты.">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v2">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+</head>
+<body>
+    <div class="container">
+
+        <header class="header">
+            <h1 class="site-title">Добавить</h1>
+
+            <nav class="navigation" aria-label="Основная навигация">
+                <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
+                <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
+                <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
+                <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
+            </nav>
+        </header>
+
+        <main class="main-content_other">
+        {% if messages %}
+            <div class="messages" aria-live="polite">
+                {% for message in messages %}
+                    <div class="message message--{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+            <section class="content-block">
+                <h2>Добавить участника</h2>
+                <form action="" method="POST" enctype="multipart/form-data" class="form-card">
+                    {% csrf_token %}
+
+                    {% if add_participant.non_field_errors %}
+                        <div class="form-errors">
+                            {{ add_participant.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    {% for field in add_participant.visible_fields %}
+                        <div class="form-field">
+                            {{ field.label_tag }}
+                            {{ field }}
+
+                            {% if field.help_text %}
+                                <small class="form-help">{{ field.help_text }}</small>
+                            {% endif %}
+
+                            {% if field.errors %}
+                                <div class="form-errors">{{ field.errors }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button class="action-button" type="submit">Сохранить</button>
+                </form>
+
+            </section>
+            <section class="content-block">
+                <h2>Добавить платеж</h2>
+                <form action="" method="POST" class="form-card">
+                    {% csrf_token %}
+
+                    {% if add_payment.non_field_errors %}
+                        <div class="form-errors">
+                            {{ add_payment.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    {% for field in add_payment.visible_fields %}
+                        <div class="form-field">
+                            {{ field.label_tag }}
+                            {{ field }}
+
+                            {% if field.help_text %}
+                                <small class="form-help">{{ field.help_text }}</small>
+                            {% endif %}
+
+                            {% if field.errors %}
+                                <div class="form-errors">{{ field.errors }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button class="action-button" type="submit">Сохранить</button>
+                </form>
+            </section>
+            <section class="content-block">
+                <h2>Изменить состояние счета</h2>
+                <form action="" method="POST" enctype="multipart/form-data" class="form-card">
+                    {% csrf_token %}
+
+                    {% if add_statement.non_field_errors %}
+                        <div class="form-errors">
+                            {{ add_statement.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+                    {% for field in add_statement.visible_fields %}
+                        <div class="form-field">
+                            {{ field.label_tag }}
+                            {{ field }}
+
+                            {% if field.help_text %}
+                                <small class="form-help">{{ field.help_text }}</small>
+                            {% endif %}
+
+                            {% if field.errors %}
+                                <div class="form-errors">{{ field.errors }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button class="action-button" type="submit">Сохранить</button>
+                </form>
+
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; by Alexei Giro</p>
+        </footer>
+
+    </div>
+<script src="{% static 'js/account.js' %}?v=1.2"></script>
+</body>
+</html>
+

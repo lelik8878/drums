@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Participants</title>
+    <title>Участники</title>
     <meta name="description" content="Сбор на барабаны и другие инструменты.">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
@@ -26,16 +26,9 @@
         <main class="main-content_other">
 
             <section class="content-block">
-                <h2>Основной блок</h2>
-                <p>
-                    Здесь будут все участники с фотками и кто сколько задонатил.
-                </p>
-
+                <h2>Участники</h2>
                 <div class="table-container">
                     <table class="custom-table">
-                        <!-- Заголовок таблицы (для доступности) -->
-                        <caption class="table-caption">Спецификации ударных установок</caption>
-
                         <!-- Шапка таблицы -->
                         <thead>
                             <tr>
@@ -51,24 +44,24 @@
                                 <td><img src="{% static 'img/self.jpg' %}" alt="foto"></td>
                             </tr>
                             <tr>
-                                <td>Алексей выдрин</td>
+                                <td>Алексей Выдрин</td>
                                 <td><img src="{% static 'img/vidryn_01.jpg' %}" alt="foto"></td>
                             </tr>
                             <tr>
                                 <td>Rock Monster</td>
-                                <td><img src="" alt="foto"></td>
+                                <td><img src="{% static 'img/no_image.jpg' %}" alt="foto"></td>
                             </tr>
                             <tr>
                                 <td>Studio Pro</td>
-                                <td><img src="" alt="foto"></td>
+                                <td><img src="{% static 'img/no_image.jpg' %}" alt="foto"></td>
                             </tr>
                         </tbody>
 
                         <!-- Подвал таблицы (например, для итогов) -->
                         <tfoot>
                             <tr>
-                                <td >Средняя стоимость</td>
-                                <td>48 750 7575,97 </td>
+                                <td ></td>
+                                <td></td>
                             </tr>
                         </tfoot>
                     </table>

@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пополнение</title>
+    <meta name="description" content="Сбор на барабаны и другие инструменты.">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
 </head>
 <body>
-    <h1><a href="{% url 'home' %}">Вообще не готово, на главную</a></h1>
-    <script src="{% static 'js/account.js' %}"></script>
+    <div class="container">
+
+        <header class="header">
+            <h1 class="site-title">Пополнение</h1>
+
+            <nav class="navigation" aria-label="Основная навигация">
+                <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
+                <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
+                <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
+                <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
+            </nav>
+        </header>
+
+        <main class="main-content_other">
+
+            <section class="content-block">
+                <h2>Путь для пополнения</h2>
+                <h3>(без комиссии)</h3>
+                <p>
+                    ЕРИП - Банковские, финансовые услуги - Банки, НКФО - МТбанк - Пополнение карты
+                </p>
+                <div class="copy-row">
+                    <span id="text-to-copy">39632521</span>
+                    <button id="copy-btn" title="Копировать">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+
+
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; by Alexei Giro</p>
+        </footer>
+
+    </div>
+<script src="{% static 'js/account.js' %}?v=1.2"></script>
 </body>
 </html>
+

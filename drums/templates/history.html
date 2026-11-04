@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Participants</title>
+    <title>История</title>
     <meta name="description" content="Сбор на барабаны и другие инструменты.">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
@@ -13,7 +13,7 @@
 <div class="container">
 
         <header class="header">
-            <h1 class="site-title">Участники проекта</h1>
+            <h1 class="site-title">История</h1>
 
             <nav class="navigation" aria-label="Основная навигация">
                 <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
@@ -26,21 +26,15 @@
         <main class="main-content_other">
 
             <section class="content-block">
-                <h2>История здесь будет</h2>
-                <p>
-                    Пока не готово.
-                </p>
-
+                <h2>История пополнений</h2>
                 <div class="table-container">
                     <table class="custom-table">
-                        <!-- Заголовок таблицы (для доступности) -->
-                        <caption class="table-caption">Спецификации ударных установок</caption>
-
                         <!-- Шапка таблицы -->
                         <thead>
                             <tr>
                                 <th>Имя</th>
-                                <th>Фото</th>
+                                <th>Дата</th>
+                                <th>Сколько</th>
                             </tr>
                         </thead>
 
@@ -48,27 +42,32 @@
                         <tbody>
                             <tr>
                                 <td>Алексей Гиро</td>
-                                <td><img src="{% static 'img/self.jpg' %}" alt="foto"></td>
+                                <td>28.06</td>
+                                <td>10 BYN</td>
                             </tr>
                             <tr>
-                                <td>Алексей выдрин</td>
-                                <td><img src="{% static 'img/vidryn_01.jpg' %}" alt="foto"></td>
+                                <td>Алексей Выдрин</td>
+                                <td>30.06</td>
+                                <td>10 BYN</td>
                             </tr>
                             <tr>
                                 <td>Rock Monster</td>
-                                <td><img src="" alt="foto"></td>
+                                <td>14.07</td>
+                                <td>10 BYN</td>
                             </tr>
                             <tr>
                                 <td>Studio Pro</td>
-                                <td><img src="" alt="foto"></td>
+                                <td>16.07</td>
+                                <td>10 BYN</td>
                             </tr>
                         </tbody>
 
                         <!-- Подвал таблицы (например, для итогов) -->
                         <tfoot>
                             <tr>
-                                <td >Средняя стоимость</td>
-                                <td>48 750 7575,97 </td>
+                                <td >Итого</td>
+                                <td></td>
+                                <td>48 750 </td>
                             </tr>
                         </tfoot>
                     </table>

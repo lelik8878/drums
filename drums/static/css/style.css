@@ -3,6 +3,14 @@
     box-sizing: border-box;
 }
 
+/** {*/
+/*    outline: 1px solid red !important;*/
+/*}*/
+
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     margin: 0;
     min-width: 320px;
@@ -46,11 +54,11 @@ body {
 
 .nav-button {
     padding: 10px 18px;
-
+    width: 160px;
     border-radius: 6px;
     background-color: #2563eb;
     color: white;
-
+    text-align: center;
     text-decoration: none;
     transition: background-color 0.2s;
 }
@@ -95,11 +103,17 @@ body {
     color: #1f2937;
 }
 
+.content-block h3 {
+    margin-top: 0;
+    color: #1f2937;
+}
+
 .content-block img {
-    max-width: 50%;
+    max-width: 95%;
     height: auto;
     display: block;
     margin: 15px auto;
+    border-radius: 10px;
 }
 
 /* Кнопка внутри контента */
@@ -151,8 +165,21 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .main-content_other {
+        width: 100%;       /* Теперь блок занимает всю ширину контейнера */
+        min-width: auto;    /* Убираем жесткие 320px, чтобы блок не вылезал за экран */
+    }
+
     .content-block {
         padding: 20px;
+    }
+
+    .form-card {
+        margin: 16px auto;
+    }
+
+    .form-card .action-button {
+        width: 100%;
     }
 }
 
@@ -223,4 +250,94 @@ body {
     font-weight: bold;
     color: #172554;
     border-top: 2px solid #cbd5e1;
+}
+
+.copy-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: sans-serif;
+}
+
+#copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    transition: color 0.2s;
+}
+
+#copy-btn:hover {
+    color: #2563eb; /* Ваш синий цвет */
+}
+
+.form-card {
+    width: min(100%, 560px);
+    margin: 24px auto;
+    padding: clamp(20px, 4vw, 32px);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-field {
+    margin-bottom: 18px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 16px;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 1px;
+}
+
+.form-help {
+    display: block;
+    margin-top: 5px;
+    color: #6b7280;
+}
+
+.form-errors,
+.form-card .errorlist {
+    margin-top: 6px;
+    color: #b91c1c;
+}
+
+.messages {
+    margin: 16px 0;
+}
+
+.message {
+    padding: 12px 16px;
+    border-radius: 6px;
+}
+
+.message--success {
+    color: #166534;
+    background-color: #dcfce7;
+}
+
+.message--error {
+    color: #991b1b;
+    background-color: #fee2e2;
 }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Итого</title>
+    <meta name="description" content="Сбор на барабаны и другие инструменты.">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}"/>
+</head>
+<body>
+<div class="container">
+
+        <header class="header">
+            <h1 class="site-title">Итого</h1>
+
+            <nav class="navigation" aria-label="Основная навигация">
+                <a class="nav-button {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Главная</a>
+                <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
+                <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
+                <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
+            </nav>
+        </header>
+
+        <main class="main-content_other">
+
+            <section class="content-block">
+                <h2>Участники</h2>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <!-- Шапка таблицы -->
+                        <thead>
+                            <tr>
+                                <th>Имя</th>
+                                <th>Итого</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Основное содержимое -->
+                        <tbody>
+                            <tr>
+                                <td>Алексей Гиро</td>
+                                <td>20 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>Алексей Выдрин</td>
+                                <td>20 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>Rock Monster</td>
+                                <td>20 BYN</td>
+                            </tr>
+                            <tr>
+                                <td>Studio Pro</td>
+                                <td>20 BYN</td>
+                            </tr>
+                        </tbody>
+
+                        <!-- Подвал таблицы (например, для итогов) -->
+                        <tfoot>
+                            <tr>
+                                <td ></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer">
+            <p>&copy; by Alexei Giro</p>
+        </footer>
+
+    </div>
+</body>
+</html>
