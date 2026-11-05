@@ -5,7 +5,10 @@ from .models import Participant, Payment, Statement
 
 
 def get_home_page(request):
-    context = {}
+    statement = Statement.objects.order_by('-pk').first()
+    print(statement)
+    print(type(statement))
+    context = {'statement': statement}
     return render(request, 'home.html', context)
 
 
