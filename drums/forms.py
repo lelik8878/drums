@@ -10,7 +10,7 @@ class AddParticipantForm(forms.Form):
 class AddPaymentForm(forms.Form):
     date = forms.DateField(label='Дата', widget=forms.DateInput(format='%Y-%m-%d',
                                                                 attrs={"type": "date", "class": "form-control"}))
-    amount = forms.IntegerField(label='Количество')
+    amount = forms.IntegerField(label='Сумма')
     participant = forms.ModelChoiceField(label='Участник', queryset=Participant.objects)
 
 

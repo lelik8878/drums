@@ -219,7 +219,7 @@ body {
 
 /* Стили для обычных ячеек (td) */
 .custom-table td {
-    padding: 12px 15px;
+    padding: 10px 6px;
     border-bottom: 1px solid #eee;
     color: #333;
 }

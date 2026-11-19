@@ -18,15 +18,39 @@
                 <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
                 <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
                 <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
+
+                {% if user.is_authenticated %}
+                    <a class="nav-button {% if '/add/' in request.path %}active{% endif %}" href="{% url 'add' %}">Добавить</a>
+                    <a class="nav-button {% if '/total/' in request.path %}active{% endif %}" href="{% url 'total' %}">Итого</a>
+                {% endif %}
             </nav>
         </header>
         <main class="main-content">
             <section class="content-block">
                 <h2>На что собираем</h2>
+                <h3>Мы не просто копим деньги — мы копим ритм!</h3>
+                <p>
+                    Наша цель — электронная барабанная установка,
+                    и каждый вклад приближает нас к первому «бум-ц-ц»!
+                </p>
+                <p>
+                    Залетай, станешь частью нашего общего бита!
+                </p>
+                <p>
+                    Скучно просто так не бывает,
+                    скучно — это когда не во что влупить!
+                    С нами эта возможность будет всегда доступна!
+                </p>
+                <p>
+                    Благодарим всех, кто поддерживает нашу инициативу!
+                </p>
                 <img src="{% static 'img/on_music.jpg' %}" alt="предмет сбора">
                 <h2>Состояние счета</h2>
-                <img src="{% static 'img/moby.jpg' %}" alt="состояние счета">
-                <img src="{{ statement.image.url }}" alt="">
+                {% if statement %}
+                    <img src="{{ statement.image.url }}" alt="Состояние счета">
+                {% else %}
+                    <img src="{% static 'img/moby.jpg' %}" alt="Состояние счета пока не загружено">
+                {% endif %}
             </section>
             <section class="content-block">
                 <h2>Последние пополнения</h2>
@@ -36,33 +60,23 @@
                         <thead>
                             <tr>
                                 <th>Имя</th>
-                                <th>Количество</th>
+                                <th>Сумма</th>
                             </tr>
                         </thead>
                         <!-- Основное содержимое -->
                         <tbody>
+                            {% for payment in payments %}
                             <tr>
-                                <td>Stage Master 500</td>
-                                <td>45 000 BYN</td>
+                                <td>{{ payment.participant.name }}</td>
+                                <td>{{ payment.amount }} BYN</td>
                             </tr>
-                            <tr>
-                                <td>Jazz Essence</td>
-                                <td>38 000 BYN</td>
-                            </tr>
-                            <tr>
-                                <td>Rock Monster</td>
-                                <td>52 000 BYN</td>
-                            </tr>
-                            <tr>
-                                <td>Studio Pro</td>
-                                <td>60 000 BYN</td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                         <!-- Подвал таблицы (например, для итогов) -->
                         <tfoot>
                             <tr>
-                                <td >Всего собрано</td>
-                                <td>456 BYN</td>
+                                <td>Всего собрано</td>
+                                <td>{{ total }} BYN</td>
                             </tr>
                         </tfoot>
                     </table>

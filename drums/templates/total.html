@@ -20,6 +20,11 @@
                 <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
                 <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
                 <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
+
+                {% if user.is_authenticated %}
+                    <a class="nav-button {% if '/add/' in request.path %}active{% endif %}" href="{% url 'add' %}">Добавить</a>
+                    <a class="nav-button {% if '/total/' in request.path %}active{% endif %}" href="{% url 'total' %}">Итого</a>
+                {% endif %}
             </nav>
         </header>
 
@@ -39,31 +44,13 @@
 
                         <!-- Основное содержимое -->
                         <tbody>
+                            {% for participant in participants %}
                             <tr>
-                                <td>Алексей Гиро</td>
-                                <td>20 BYN</td>
+                                <td>{{ participant.name }}</td>
+                                <td>{{ participant.total_amount|default_if_none:0 }} BYN</td>
                             </tr>
-                            <tr>
-                                <td>Алексей Выдрин</td>
-                                <td>20 BYN</td>
-                            </tr>
-                            <tr>
-                                <td>Rock Monster</td>
-                                <td>20 BYN</td>
-                            </tr>
-                            <tr>
-                                <td>Studio Pro</td>
-                                <td>20 BYN</td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
-
-                        <!-- Подвал таблицы (например, для итогов) -->
-                        <tfoot>
-                            <tr>
-                                <td ></td>
-                                <td></td>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </section>

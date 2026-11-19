@@ -21,6 +21,7 @@ class Payment(models.Model):
     class Meta:
         verbose_name = 'Платеж'
         verbose_name_plural = 'Платежи'
+        ordering = ['-date']
 
     def __str__(self):
         return f'{self.participant} --- {self.amount} BYN'

@@ -20,6 +20,11 @@
                 <a class="nav-button {% if '/parts/' in request.path %}active{% endif %}" href="{% url 'parts' %}">Участники</a>
                 <a class="nav-button {% if '/history/' in request.path %}active{% endif %}" href="{% url 'history' %}">История</a>
                 <a class="nav-button {% if '/account/' in request.path %}active{% endif %}" href="{% url 'account' %}">Как пополнить</a>
+
+                {% if user.is_authenticated %}
+                    <a class="nav-button {% if '/add/' in request.path %}active{% endif %}" href="{% url 'add' %}">Добавить</a>
+                    <a class="nav-button {% if '/total/' in request.path %}active{% endif %}" href="{% url 'total' %}">Итого</a>
+                {% endif %}
             </nav>
         </header>
 
@@ -35,7 +40,7 @@
         {% endif %}
             <section class="content-block">
                 <h2>Добавить участника</h2>
-                <form action="" method="POST" enctype="multipart/form-data" class="form-card">
+                <form method="POST" enctype="multipart/form-data" class="form-card">
                     {% csrf_token %}
 
                     {% if add_participant.non_field_errors %}
@@ -58,13 +63,13 @@
                             {% endif %}
                         </div>
                     {% endfor %}
-                    <button class="action-button" type="submit">Сохранить</button>
+                    <button class="action-button" type="submit" name="add_participant" value="1">Сохранить</button>
                 </form>
 
             </section>
             <section class="content-block">
                 <h2>Добавить платеж</h2>
-                <form action="" method="POST" class="form-card">
+                <form method="POST" class="form-card">
                     {% csrf_token %}
 
                     {% if add_payment.non_field_errors %}
@@ -87,12 +92,12 @@
                             {% endif %}
                         </div>
                     {% endfor %}
-                    <button class="action-button" type="submit">Сохранить</button>
+                    <button class="action-button" type="submit" name="add_payment" value="1">Сохранить</button>
                 </form>
             </section>
             <section class="content-block">
                 <h2>Изменить состояние счета</h2>
-                <form action="" method="POST" enctype="multipart/form-data" class="form-card">
+                <form method="POST" enctype="multipart/form-data" class="form-card">
                     {% csrf_token %}
 
                     {% if add_statement.non_field_errors %}
@@ -115,7 +120,7 @@
                             {% endif %}
                         </div>
                     {% endfor %}
-                    <button class="action-button" type="submit">Сохранить</button>
+                    <button class="action-button" type="submit" name="add_statement" value="1">Сохранить</button>
                 </form>
 
             </section>
@@ -126,7 +131,6 @@
         </footer>
 
     </div>
-<script src="{% static 'js/account.js' %}?v=1.2"></script>
 </body>
 </html>
 
