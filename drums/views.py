@@ -8,7 +8,7 @@ from .models import Participant, Payment, Statement
 
 def get_home_page(request):
     statement = Statement.objects.order_by('-pk').first()
-    payments = Payment.objects.all()[:5]
+    payments = Payment.objects.all()[:10]
     total = Payment.objects.aggregate(total=Sum('amount'))['total'] or 0
     context = {'statement': statement, 'payments': payments, 'total': total}
     return render(request, 'home.html', context)
